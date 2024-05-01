@@ -1,0 +1,55 @@
+#app {
+    height: 100%
+}
+
+html,
+body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    background: #eee;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.swiper {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 120px;
+    height: 120px;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 120px;
+    height: 120px;
+    object-position: center;
+    margin-top: 40px;
+    margin-left: 40px;
+    object-fit: contain;
+    -webkit-filter: drop-shadow(5px 5px 5px #111111);
+    filter: drop-shadow(5px 5px 5px #111111);
+}
+
+.main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../assets/watch.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 280px;
+    background-color: rgba(255, 255, 255, 0.082);
+}
