@@ -10,7 +10,7 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { EffectCoverflow, Pagination } from 'swiper/modules';
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export default function Main({ images }: any) {
 
