@@ -10,7 +10,7 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { EffectCoverflow, Pagination } from 'swiper/modules';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function Main({ images }: any) {
 
@@ -29,12 +29,41 @@ export default function Main({ images }: any) {
     }
   };
 
-  console.log(alien)
-
   return (
     <>
       <div className='main'>
         <div className="button" onClick={prevSlide}></div>
+        {
+          alien &&
+          <div className="alienBig">
+            <Swiper
+              effect={'coverflow'}
+              grabCursor={true}
+              centeredSlides={true}
+              slidesPerView={'auto'}
+              coverflowEffect={{
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+              }}
+              modules={[EffectCoverflow, Pagination]}
+              className="mySwiperAlien"
+            >
+              {
+                alien?.map((alien: any, i: number) => (
+                  <SwiperSlide key={i}>
+                    <img
+                      src={alien}
+                      onClick={() => setAlien(null)}
+                    />
+                  </SwiperSlide>
+                ))
+              }
+            </Swiper>
+          </div>
+        }
         <Swiper
           effect={'coverflow'}
           grabCursor={true}
@@ -53,12 +82,12 @@ export default function Main({ images }: any) {
         >
           {
             images?.map((image: any, i: number) => (
-                <SwiperSlide key={i}>
-                  <img
-                    src={image[0]}
-                    onClick={() => setAlien(image)}
-                  />
-                </SwiperSlide>
+              <SwiperSlide key={i}>
+                <img
+                  src={image[0]}
+                  onClick={() => setAlien(image)}
+                />
+              </SwiperSlide>
             ))
           }
         </Swiper>
