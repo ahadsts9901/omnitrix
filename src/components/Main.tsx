@@ -10,12 +10,31 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { EffectCoverflow, Pagination } from 'swiper/modules';
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function Main({ images }: any) {
+
+  const [swiper, setSwiper] = useState<any>(null);
+  const [alien, setAlien] = useState<any>()
+
+  const nextSlide = () => {
+    if (swiper !== null) {
+      swiper.slideNext();
+    }
+  };
+
+  const prevSlide = () => {
+    if (swiper !== null) {
+      swiper.slidePrev();
+    }
+  };
+
+  console.log(alien)
+
   return (
     <>
       <div className='main'>
+        <div className="button" onClick={prevSlide}></div>
         <Swiper
           effect={'coverflow'}
           grabCursor={true}
@@ -30,19 +49,20 @@ export default function Main({ images }: any) {
           }}
           modules={[EffectCoverflow, Pagination]}
           className="mySwiper"
+          onSwiper={(swiper) => setSwiper(swiper)}
         >
           {
             images?.map((image: any, i: number) => (
-              <React.Fragment key={i}>
-                <SwiperSlide>
+                <SwiperSlide key={i}>
                   <img
                     src={image[0]}
+                    onClick={() => setAlien(image)}
                   />
                 </SwiperSlide>
-              </React.Fragment>
             ))
           }
         </Swiper>
+        <div className="button" onClick={nextSlide}></div>
       </div>
     </>
   );

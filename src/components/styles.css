@@ -20,6 +20,7 @@ body {
     width: 200px;
     height: 200px;
     border-radius: 100%;
+    margin: 0 !important;
 }
 
 .swiper-slide {
@@ -52,4 +53,13 @@ body {
     background-repeat: no-repeat;
     background-size: 280px;
     background-color: rgba(255, 255, 255, 0.082);
+}
+
+/* right left butons */
+
+.button {
+    width: 3em;
+    height: 2em;
+    /* background-color: red; */
+    cursor: pointer;
 }
